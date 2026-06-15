@@ -1,6 +1,8 @@
 // Hidminiport.h: HID miniport communication structures
 #pragma once
 
+#pragma warning(disable:4214) // allow non-int bit fields (UCHAR) under /WX
+
 #include <pshpack1.h>
 
 // PTP device capabilites Feature Report

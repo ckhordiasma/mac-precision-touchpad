@@ -1,6 +1,8 @@
 // HidDevice.h: devicei-specific HID structures
 #pragma once
 
+#pragma warning(disable:4214) // allow non-int bit fields (UCHAR) under /WX
+
 /* Trackpad finger data offsets, le16-aligned */
 #define HOFFSET_TYPE_USB_1		(13 * sizeof(USHORT))
 #define HOFFSET_TYPE_USB_2		(15 * sizeof(USHORT))

@@ -56,6 +56,8 @@
 #define USB_DEVICE_ID_APPLE_WELLSPRING9_JIS	0x0274
 /* MagicTrackpad2 (2015) */
 #define USB_DEVICE_ID_APPLE_MAGICTRACKPAD2	0x0265
+/* Magic Trackpad (USB-C, 2021/2022) - assumed TYPE5-compatible with MT2 */
+#define USB_DEVICE_ID_APPLE_MAGICTRACKPAD_USBC	0x0324
 /* Apple T2 USB trackpad */
 #define USB_DEVICE_ID_APPLE_T2 0x027d
 
@@ -413,6 +415,22 @@ static const struct BCM5974_CONFIG Bcm5974ConfigTable[] = {
 		{ SN_WIDTH, 0, 2048 },
 		{ SN_COORD, -4828, 5345 },
 		{ SN_COORD, -203, 6803 },
+		{ SN_ORIENT, -MAX_FINGER_ORIENTATION, MAX_FINGER_ORIENTATION }
+	},
+	{
+		/* Magic Trackpad (USB-C). Cloned from MagicTrackpad2 (TYPE5);
+		   coordinate ranges copied from MT2 as a starting point - tune
+		   later if cursor scaling/edges feel off. */
+		USB_DEVICE_ID_APPLE_MAGICTRACKPAD_USBC,
+		USB_DEVICE_ID_APPLE_MAGICTRACKPAD_USBC,
+		USB_DEVICE_ID_APPLE_MAGICTRACKPAD_USBC,
+		HAS_INTEGRATED_BUTTON,
+		0, sizeof(struct TRACKPAD_BUTTON_DATA),
+		0x83, DATAFORMAT(TYPE5),
+		{ SN_PRESSURE, 0, 300 },
+		{ SN_WIDTH, 0, 2048 },
+		{ SN_COORD, -3678, 3934 },
+		{ SN_COORD, -2479, 2586 },
 		{ SN_ORIENT, -MAX_FINGER_ORIENTATION, MAX_FINGER_ORIENTATION }
 	},
 };
